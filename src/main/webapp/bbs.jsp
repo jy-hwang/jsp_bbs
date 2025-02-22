@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
-<%@ page import="java.io.PrintWriter"%>
+pageEncoding="UTF-8"%> <%@ page import="java.io.PrintWriter"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,12 +9,8 @@ pageEncoding="UTF-8"%>
     <title>JSP 게시판 웹 사이트</title>
   </head>
   <body>
-  <%
-  String userId = null;
-  if (session.getAttribute("userId") != null){
-    userId = (String) session.getAttribute("userId");
-  }
-  %>
+    <% String userId = null; if (session.getAttribute("userId") != null){ userId
+    = (String) session.getAttribute("userId"); } %>
     <nav class="navbar navbar-default">
       <div class="navbar-header">
         <button
@@ -32,12 +27,10 @@ pageEncoding="UTF-8"%>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="main.jsp">메인</a></li>
-          <li><a href="bbs.jsp">게시판</a></li>
+          <li><a href="main.jsp">메인</a></li>
+          <li class="active"><a href="bbs.jsp">게시판</a></li>
         </ul>
-<%
-if(userId == null){
-%>
+        <% if(userId == null){ %>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown"
             ><a
@@ -55,9 +48,7 @@ if(userId == null){
             </ul></li
           >
         </ul>
-<%
-} else {
-%>
+        <% } else { %>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown"
             ><a
@@ -74,12 +65,35 @@ if(userId == null){
             </ul></li
           >
         </ul>
-<% 
-}
-%>
+        <% } %>
       </div>
     </nav>
-   
+    <div class="container">
+      <div class="row">
+        <table
+          class="table table-striped"
+          style="text-align: center; border: 1px solid #ddd"
+        >
+          <thead>
+            <tr>
+              <th style="background-color: #eee; text-align: center">번호</th>
+              <th style="background-color: #eee; text-align: center">제목</th>
+              <th style="background-color: #eee; text-align: center">작성자</th>
+              <th style="background-color: #eee; text-align: center">작성일</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>안녕하세요</td>
+              <td>홍길동</td>
+              <td>2025-02-22</td>
+            </tr>
+          </tbody>
+        </table>
+        <a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
+      </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="js/bootstrap.js"></script>
   </body>
