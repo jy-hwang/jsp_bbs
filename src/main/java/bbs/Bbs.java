@@ -1,6 +1,6 @@
 package bbs;
 
-import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Bbs {
 
@@ -10,11 +10,11 @@ public class Bbs {
 
   private String bbsContent;
 
-  private LocalDateTime createdDate;
+  private String createdDate;
 
   private String createdBy;
 
-  private LocalDateTime updatedDate;
+  private String updatedDate;
 
   private int bbsAvailable;
 
@@ -42,14 +42,6 @@ public class Bbs {
     this.bbsContent = bbsContent;
   }
 
-  public LocalDateTime getCreatedDate() {
-    return createdDate;
-  }
-
-  public void setCreatedDate(LocalDateTime createdDate) {
-    this.createdDate = createdDate;
-  }
-
   public String getCreatedBy() {
     return createdBy;
   }
@@ -58,11 +50,19 @@ public class Bbs {
     this.createdBy = createdBy;
   }
 
-  public LocalDateTime getUpdatedDate() {
+  public String getCreatedDate() {
+    return createdDate.formatted(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+  }
+
+  public void setCreatedDate(String createdDate) {
+    this.createdDate = createdDate;
+  }
+
+  public String getUpdatedDate() {
     return updatedDate;
   }
 
-  public void setUpdatedDate(LocalDateTime updatedDate) {
+  public void setUpdatedDate(String updatedDate) {
     this.updatedDate = updatedDate;
   }
 

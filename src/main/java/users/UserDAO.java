@@ -25,7 +25,7 @@ public class UserDAO {
 
 
     } catch (Exception e) {
-      e.getMessage();
+      e.getStackTrace();
     }
   }
 
@@ -50,7 +50,7 @@ public class UserDAO {
       }
       return -1; // 아이디가 없음.
     } catch (Exception e) {
-      e.getMessage();
+      e.getStackTrace();
     }
     return -2;// 데이터베이스 오류
   }
@@ -69,7 +69,7 @@ public class UserDAO {
       return pstmt.executeUpdate();
 
     } catch (Exception e) {
-      e.getMessage();
+      e.getStackTrace();
     }
     return -1;// 데이터베이스 오류
   }
